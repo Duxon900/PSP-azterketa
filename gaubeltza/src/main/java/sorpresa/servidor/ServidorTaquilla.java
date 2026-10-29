@@ -9,10 +9,11 @@ import sorpresa.servidor.recursos.Taquilla;
 
 public class ServidorTaquilla {
     private static final int PUERTO = 5050;
-    private static final int ENTRADAS_INICIALES = 20;
+    //TODO: declarar ENTRADAS_INICIALES
 
     public static void main(String[] args) {
-        Taquilla taquilla = new Taquilla(ENTRADAS_INICIALES);
+        //TODO: crear objeto taquilla
+        //TODO: abrir hilo  de GestorCliente con el cliente conectado y la taquilla. Darle de nombre "Cliente-"+contador
         try (ServerSocket servidor = new ServerSocket(PUERTO)) {
             System.out.println("Taquilla abierta con " + ENTRADAS_INICIALES + " entradas en el puerto " + PUERTO + ".");
             int contador = 0;
@@ -20,7 +21,6 @@ public class ServidorTaquilla {
                 Socket cliente = servidor.accept();
                 contador++;
                 System.out.println("Cliente " + contador + " conectado.");
-                new Thread(new GestorCliente(cliente, taquilla), "Cliente-" + contador).start();
             }
         } catch (IOException e) {
             System.err.println("Error en el servidor: " + e.getMessage());

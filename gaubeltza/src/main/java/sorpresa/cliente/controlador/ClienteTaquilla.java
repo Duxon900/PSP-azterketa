@@ -10,7 +10,8 @@ import sorpresa.cliente.modelo.Comprador;
 import sorpresa.cliente.vista.VistaCliente;
 
 /** Cliente que consulta el stock y compra entradas hasta que se agotan. */
-public class ClienteTaquilla implements Runnable {
+//TODO: runnable
+public class ClienteTaquilla {
     private final Comprador comprador;
     private final VistaCliente vista;
     private final String host;
@@ -38,7 +39,8 @@ public class ClienteTaquilla implements Runnable {
                     break;
                 }
                 int cantidad = random.nextInt(3) + 1;
-                String respuesta = enviar(salida, entrada, "COMPRAR:" + cantidad);
+                //TODO: respuesta enviar
+                
                 vista.mostrarRespuesta(comprador.getNombre(), respuesta);
                 if (respuesta.startsWith("OK")) {
                     comprador.anadirEntradas(cantidad);
